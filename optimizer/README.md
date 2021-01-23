@@ -3,7 +3,7 @@ Fun problem, don't want to do it again.
 We used `pwnlib` in Python 3.
 ## Hanoi
 The hanoi section turned out to just be `2^(length of list)-1`:
-```
+```python
 i = r.recvline()
 while(not i.startswith(b"level 2")):
  l = len(json.loads(i))
@@ -14,7 +14,7 @@ while(not i.startswith(b"level 2")):
 It just keeps going until level two begins.
 ## Merge Sort
 We used a merge sort inversion counter found [here](https://www.geeksforgeeks.org/counting-inversions/).
-```
+```python
 from merge import mergeSort
 print('starting merge sort')
 i = r.recvline()
@@ -26,7 +26,7 @@ while(not i.startswith(b"you won")):
 ```
 `merge` is [an external file](https://github.com/jlsajfj/Offset-2020/blob/main/optimizer/merge.py) used to clean up main code. The merge code is from [a geeks for geeks](https://www.geeksforgeeks.org/counting-inversions/) post.
 ## Final Code
-```
+```python
 from pwn import *
 import json, codecs
 
