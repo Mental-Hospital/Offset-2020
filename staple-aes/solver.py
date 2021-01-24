@@ -1,3 +1,24 @@
+from pwn import xor
+
+# p for parse
+p = bytes.fromhex
+
+b2 = p('81bdc2ad2a484a1f84a3eda4add9fe45')
+b3 = p('9adeacc55e0e1a27e39c97cccaa2ae7d')
+
+# our assumption for b3 plaintext
+b3_p = p('7d0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f')
+
+b2b3 = xor(b2,b3)
+
+#not fully sure where these two are from
+b1 = p('9483befd5226704fcbf39198c1a4c23e')
+b1b3 = p('0e5d12380c286a68286f06540b066c43')
+
+b2_p = xor(b2b3, b3_p)
+
+
+"""
 b1b3   = [0x0e,0x5d,0x12,0x38,0x0c,0x28,0x6a,0x68,0x28,0x6f,0x06,0x54,0x0b,0x06,0x6c,0x43]
 flag_1 = []
 flag_2 = []
@@ -51,3 +72,4 @@ for i in range(len(flag_1), len(b1b3)):
 # >>> hex(b1b3 ^ b2_p)
 # '0x6831735f7761355f405f733363723374'
 # >>> 
+"""
